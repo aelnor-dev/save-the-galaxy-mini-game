@@ -47,9 +47,11 @@ h1 {
 
 
 #description button {
-  width: 100px;
+  padding: 10px 25px;
   background-color: rgb(228, 88, 172);
   border-radius: 20px;
+  border: none;
+  filter: drop-shadow(0 0 10px rgb(212, 8, 107)) drop-shadow(0 0 20px rgb(212, 8, 107));
 }
 
 #description img {
@@ -72,7 +74,6 @@ h1 {
   font-size: 15px;
   background-color: yellow;
   filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8)) drop-shadow(0 0 20px rgba(255, 255, 0, 0.6));
-  /* Adds glow */
   padding: 5px 10px;
   width: fit-content;
   border-radius: 5px;
@@ -100,7 +101,7 @@ h1 {
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url("character1.png");
-  transition: transform 0.2s ease;
+  transition: left 0.2s ease, transform 0.2s ease;
 }
 
 .coin {
@@ -108,13 +109,10 @@ h1 {
   width: 50px;
   height: 50px;
   background-image: url('star.png');
-  /* Keep only the image */
   background-size: cover;
-  /* Ensure the image scales correctly */
   background-repeat: no-repeat;
   animation: twinkle 1.5s infinite ease-in-out;
   filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8)) drop-shadow(0 0 20px rgba(255, 255, 0, 0.6));
-  /* Adds glow */
 }
 
 @keyframes twinkle {
