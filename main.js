@@ -91,7 +91,7 @@ class Game {
         alert("¡Victoria! Has limpiado este planeta.");
         this.container.innerHTML = "";
         new Game();
-      }, 300);
+      }, 100);
     }
   }
 
@@ -100,9 +100,11 @@ class Game {
       this.over = true;
       loseSound.currentTime = 0;
       loseSound.play();
-      alert("¡Que no te pillen los aliens!");
-      this.container.innerHTML = "";
-      new Game();
+      setTimeout(() => {
+        alert("¡Que no te pillen los aliens!");
+        this.container.innerHTML = "";
+        new Game();
+      }, 100);
     }
   }
 }
