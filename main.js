@@ -41,7 +41,7 @@ class Game {
 
       this.aliens.forEach((alien) => {
         if (this.character.collidesWith(alien)) {
-          this.gameOver();
+          this.gameOver(); 
         }
       });
     }, 100);
@@ -56,31 +56,39 @@ class Game {
   }
 
   alienGenerator() {
-    // Spawn initial three aliens
-    for (let i = 0; i < 3; i++) {
-      this.spawnAlien();
-    }
+
     setInterval(() => {
-      while (this.aliens.length < 3) {
+      if (this.aliens.length < 2) { 
         this.spawnAlien();
+        console.log("hola desde el while")
       }
-    }, 500); // Check every 500ms
+    }, 1000); 
   }
 
   spawnAlien() {
     const side = Math.random() < 0.5 ? "left" : "right";
-    const alien = new Alien(side);
+
+    let alien 
+    const type = Math.random();
+    if (type < 0.5) {
+        alien = new CrawlingAlien(side); 
+    } else {
+        alien = new FlyingAlien(side); 
+    }
+
     this.aliens.push(alien);
     this.container.appendChild(alien.element);
 
     const moveInterval = setInterval(() => {
-      if (!alien.offScreen()) {
-        alien.moves();
-      } else {
-        clearInterval(moveInterval);
-        this.container.removeChild(alien.element);
-        this.aliens = this.aliens.filter((a) => a !== alien);
-      }
+        if (!alien.offScreen()) {
+            alien.moves();
+        } else {
+            clearInterval(moveInterval);
+            if (this.container.contains(alien.element)) {
+                this.container.removeChild(alien.element);
+            }
+            this.aliens = this.aliens.filter((a) => a !== alien);
+        }
     }, 20);
   }
 
@@ -111,7 +119,7 @@ class Game {
 
 class Character {
   constructor() {
-    this.x = 50;
+    this.x = 250;
     this.y = 215;
     this.width = 90;
     this.height = 90;
@@ -132,7 +140,7 @@ class Character {
     const containerWidth = container.offsetWidth;
     const containerHeight = container.offsetHeight;
 
-    if (event.key === "ArrowRight") {
+    if (event.key === "ArrowRight" ) {
       if (this.x + this.width + this.speed <= containerWidth) {
         // Right boundary
         this.x += this.speed;
@@ -187,7 +195,7 @@ class Character {
         clearInterval(this.gravityInterval);
         this.gravityInterval = null;
         this.falling = false;
-        this.canJumpInTheAir = true; // Resetea el flag al tocar el suelo
+        this.canJumpInTheAir = true; 
         this.y = 215;
         this.updatePosition();
         return;
@@ -233,8 +241,8 @@ class Coin {
 class Alien {
   constructor(side) {
     this.width = 50;
-    this.height = 50;
-    this.speed = Math.random() * 3 + 2; // Velocidad aleatoria entre 2 y 5
+    this.height = 60;
+    this.speed = Math.random() * 1.5 + 0.5
     this.side = side; // "left" o "right"
     this.element = document.createElement("div");
     this.element.classList.add("alien");
@@ -246,8 +254,7 @@ class Alien {
       this.x = 900; // Comienza fuera de la pantalla por la derecha
       this.dx = -this.speed; // Mover hacia la izquierda
     }
-    this.y = 100; // Posición vertical aleatoria
-
+    this.y = 0;
     this.updatePosition();
   }
 
@@ -265,6 +272,26 @@ class Alien {
     return this.side === "left" ? this.x > 1000 : this.x + this.width < 0;
   }
 }
+
+
+class CrawlingAlien extends Alien {
+  constructor(side) {
+    super(side); //solo necesita side como parámetro, las demas propiedades ya están cogidas del padre
+    this.element.classList.add("crawling-alien"); 
+    this.y = 250; 
+    this.updatePosition();
+  }
+}
+
+class FlyingAlien extends Alien {
+  constructor(side) {
+    super(side);
+    this.element.classList.add("flying-alien"); 
+    this.y = 50;  
+    this.updatePosition();
+  }
+}
+
 
 window.showGame = showGame;
 function showGame() {
@@ -284,3 +311,4 @@ const jumpSound = new Audio("jump-sound.mp3");
 jumpSound.volume = 0.5;
 const loseSound = new Audio("lose-sound.mp3");
 loseSound.volume = 0.5;
+

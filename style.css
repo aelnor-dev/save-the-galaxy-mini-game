@@ -1,48 +1,48 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-    background-color: #b8b8b8;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-image: url("background2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    backdrop-filter: blur(8px); 
-  }
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  background-color: #b8b8b8;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("background2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(8px);
+}
 
-  h1 {
-    font-family: "Pixelify Sans", serif;
-    color: rgb(212, 8, 107);
-    font-size: 40px;
-    margin-bottom: 30px;
-  }
+h1 {
+  font-family: "Pixelify Sans", serif;
+  color: rgb(212, 8, 107);
+  font-size: 40px;
+  margin-bottom: 30px;
+}
 
 
-  #description {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 80px;
-    margin:0 150px;
-  }
+#description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin: 0 150px;
+}
 
-  #description-container {
-    background-color: rgb(9, 5, 62);
-    border-radius: 20px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: rgb(212, 8, 107);
-    font-size: 18px;
+#description-container {
+  background-color: rgb(9, 5, 62);
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(212, 8, 107);
+  font-size: 18px;
 
-  }
+}
 
 
 
@@ -67,76 +67,86 @@ body {
 }
 
 #score {
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: rgb(133, 77, 13);
   font-size: 15px;
   background-color: yellow;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8))
-          drop-shadow(0 0 20px rgba(255, 255, 0, 0.6)); /* Adds glow */
-  padding: 5px 10px; 
+  filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8)) drop-shadow(0 0 20px rgba(255, 255, 0, 0.6));
+  /* Adds glow */
+  padding: 5px 10px;
   width: fit-content;
-  border-radius: 5px; 
+  border-radius: 5px;
   margin-bottom: 0;
 }
 
-  #game-container {
-    position: relative;
-    width: 600px;
-    height: 300px;
-    margin: 20px auto;
-    border: 20px solid rgb(10, 10, 42);
-    background-image: url("background1.png");
-    background-size: 600px 300px;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    border-radius: 30px;
-  }
-
-  
-  .character {
-    position: absolute;
-    width: 90px;
-    height: 90px; 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url("character1.png");
-    transition: transform 0.2s ease;
-  }
-  
-  .coin {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-image: url('star.png'); /* Keep only the image */
-    background-size: cover; /* Ensure the image scales correctly */
-    background-repeat: no-repeat;
-    animation: twinkle 1.5s infinite ease-in-out; 
-    filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8))
-            drop-shadow(0 0 20px rgba(255, 255, 0, 0.6)); /* Adds glow */
-  }
-
-  @keyframes twinkle {
-    0%, 100% {
-      opacity: 1;
-      transform: scale(1);
-      filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8))
-              drop-shadow(0 0 20px rgba(255, 255, 0, 0.6));
-    }
-    50% {
-      opacity: 0.9;
-      transform: scale(1.2);
-      filter: drop-shadow(0 0 15px rgba(255, 255, 0, 1))
-              drop-shadow(0 0 25px rgba(255, 255, 0, 0.8));
-    }
-  }
+#game-container {
+  position: relative;
+  width: 600px;
+  height: 300px;
+  margin: 20px auto;
+  border: 20px solid rgb(10, 10, 42);
+  background-image: url("background1.png");
+  background-size: 600px 300px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border-radius: 30px;
+}
 
 
-  .alien {
-    position: absolute;
-    width: 80px;
-    height: 70px;
-    background-image: url('alien.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+.character {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("character1.png");
+  transition: transform 0.2s ease;
+}
 
+.coin {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url('star.png');
+  /* Keep only the image */
+  background-size: cover;
+  /* Ensure the image scales correctly */
+  background-repeat: no-repeat;
+  animation: twinkle 1.5s infinite ease-in-out;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8)) drop-shadow(0 0 20px rgba(255, 255, 0, 0.6));
+  /* Adds glow */
+}
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8)) drop-shadow(0 0 20px rgba(255, 255, 0, 0.6));
   }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 0, 1)) drop-shadow(0 0 25px rgba(255, 255, 0, 0.8));
+  }
+}
+
+
+.alien {
+  position: absolute;
+  width: 50px;
+  height: 60px;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.crawling-alien {
+  background-image: url("crawling-alien.png");
+}
+
+.flying-alien {
+  background-image: url("flying-alien.png");
+}
