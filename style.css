@@ -8,7 +8,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url("background2.jpg");
+  background-image: url("resources/images/background2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   backdrop-filter: blur(8px);
@@ -93,7 +93,7 @@ h1 {
   height: 300px;
   margin: 20px auto;
   border: 20px solid rgb(10, 10, 42);
-  background-image: url("background1.png");
+  background-image: url("resources/images/background1.png");
   background-size: 600px 300px;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -107,7 +107,7 @@ h1 {
   height: 90px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url("character1.png");
+  background-image: url("resources/images/character1.png");
   transition: left 0.2s ease, transform 0.2s ease;
 }
 
@@ -115,7 +115,7 @@ h1 {
   position: absolute;
   width: 50px;
   height: 50px;
-  background-image: url('star.png');
+  background-image: url('resources/images/star.png');
   background-size: cover;
   background-repeat: no-repeat;
   animation: twinkle 1.5s infinite ease-in-out;
@@ -149,9 +149,9 @@ h1 {
 }
 
 .crawling-alien {
-  background-image: url("crawling-alien.png");
+  background-image: url("resources/images/crawling-alien.png");
 }
 
 .flying-alien {
-  background-image: url("flying-alien.png");
+  background-image: url("resources/images/flying-alien.png");
 }

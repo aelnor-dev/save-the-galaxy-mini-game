@@ -78,8 +78,8 @@ class Game {
     this.startTime = Date.now(); 
     this.timeInterval = setInterval(() => {
       let elapsedTime = (Date.now() - this.startTime) / 1000; 
-      this.timerElement.textContent = `Tiempo transcurrido:  ${Math.floor(elapsedTime)} segundos`; // Fix formatting
-    }, 10); // Update every 10ms
+      this.timerElement.textContent = `Tiempo transcurrido:  ${Math.floor(elapsedTime)} segundos`; 
+    }, 10);
   }
 
   updateScore(score) {
@@ -338,14 +338,14 @@ function showGame() {
   new Game();
 }
 
-const bgMusic = new Audio("background-music.mp3");
+const bgMusic = new Audio("resources/sounds/background-music.mp3");
 bgMusic.loop = true;
 bgMusic.volume = 0.1;
 bgMusic.play();
-const coinSound = new Audio("coin-sound.mp3");
+const coinSound = new Audio("resources/sounds/coin-sound.mp3");
 coinSound.volume = 0.5;
-const jumpSound = new Audio("jump-sound.mp3");
+const jumpSound = new Audio("resources/sounds/jump-sound.mp3");
 jumpSound.volume = 0.5;
-const loseSound = new Audio("lose-sound.mp3");
+const loseSound = new Audio("resources/sounds/lose-sound.mp3");
 loseSound.volume = 0.5;
 
