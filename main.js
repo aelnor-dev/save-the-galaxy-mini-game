@@ -135,7 +135,6 @@ class Game {
         alert(`¡Victoria! Has limpiado este planeta en ${Math.floor(elapsedTime)} segundos.`);
         this.container.innerHTML = "";
         new Game();
-        clearInterval(this.timeInterval);
       }, 100);
     }
   }
@@ -148,6 +147,7 @@ class Game {
       setTimeout(() => {
         alert("¡Que no te pillen los aliens!");
         this.container.innerHTML = "";
+        clearInterval(this.timeInterval);
         new Game();
       }, 100);
     }
