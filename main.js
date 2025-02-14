@@ -11,11 +11,15 @@ class Game {
     this.alienGenerator();
     this.over = false;
     this.keysPressed = new Set();
+    this.startTime = Date.now;
+    this.timerElement = document.getElementById("timer");
+    this.timeInterval = null;
+    this.timer();
   }
   createScene() {
     this.character = new Character();
     this.container.appendChild(this.character.element);
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 12; i++) {
       const coin = new Coin();
       this.coins.push(coin);
       this.container.appendChild(coin.element);
@@ -70,21 +74,28 @@ class Game {
     }, 100);
   }
 
+  timer() {
+    this.startTime = Date.now(); 
+    this.timeInterval = setInterval(() => {
+      let elapsedTime = (Date.now() - this.startTime) / 1000; 
+      this.timerElement.textContent = `Tiempo transcurrido:  ${Math.floor(elapsedTime)} segundos`; // Fix formatting
+    }, 10); // Update every 10ms
+  }
+
   updateScore(score) {
     this.score += score;
-    this.scoreElement.textContent = `Estrellas recolectadas: ${this.score}/10`;
-    if (this.score === 10) {
+    this.scoreElement.textContent = `Estrellas recolectadas: ${this.score}/12`;
+    if (this.score === 12) {
       this.win();
     }
   }
 
   alienGenerator() {
     setInterval(() => {
-      if (this.aliens.length < 2) {
+      if (this.aliens.length < 3) {
         this.spawnAlien();
-        console.log("hola desde el while");
       }
-    }, 1000);
+    }, 500);
   }
 
   spawnAlien() {
@@ -117,10 +128,14 @@ class Game {
   win() {
     if (!this.over) {
       this.over = true;
+      let endTime = Date.now ()
+      let elapsedTime = (endTime - this.startTime) / 1000;
+      clearInterval(this.timeInterval);
       setTimeout(() => {
-        alert("¡Victoria! Has limpiado este planeta.");
+        alert(`¡Victoria! Has limpiado este planeta en ${Math.floor(elapsedTime)} segundos.`);
         this.container.innerHTML = "";
         new Game();
+        clearInterval(this.timeInterval);
       }, 100);
     }
   }
@@ -333,3 +348,4 @@ const jumpSound = new Audio("jump-sound.mp3");
 jumpSound.volume = 0.5;
 const loseSound = new Audio("lose-sound.mp3");
 loseSound.volume = 0.5;
+

@@ -80,6 +80,13 @@ h1 {
   margin-bottom: 0;
 }
 
+#timer {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(212, 8, 107);
+  font-size: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);   
+}
+
 #game-container {
   position: relative;
   width: 600px;
