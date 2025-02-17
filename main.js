@@ -91,12 +91,13 @@ class Game {
   }
 
   alienGenerator() {
-    setInterval(() => {
+    this.alienInterval = setInterval(() => {  
       if (this.aliens.length < 3) {
         this.spawnAlien();
       }
     }, 500);
   }
+  
 
   spawnAlien() {
     const side = Math.random() < 0.5 ? "left" : "right";
@@ -144,14 +145,24 @@ class Game {
       this.over = true;
       loseSound.currentTime = 0;
       loseSound.play();
+  
       setTimeout(() => {
         alert("¡Que no te pillen los aliens!");
-        this.container.innerHTML = "";
         clearInterval(this.timeInterval);
+        clearInterval(this.alienInterval); 
+        this.aliens.forEach(alien => {
+          if (this.container.contains(alien.element)) {
+            this.container.removeChild(alien.element);
+          }
+        });
+        this.aliens = []; 
+        this.container.innerHTML = "";
         new Game();
       }, 100);
     }
   }
+  
+  
 }
 
 class Character {
@@ -281,7 +292,7 @@ class Alien {
   constructor(side) {
     this.width = 10;
     this.height = 10;
-    this.speed = Math.random() * 2 + 1;
+    this.speed = Math.random() * 1 + 1;
     this.side = side; // "left" o "right"
     this.element = document.createElement("div");
     this.element.classList.add("alien");
