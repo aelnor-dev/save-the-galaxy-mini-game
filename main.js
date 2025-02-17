@@ -66,11 +66,11 @@ class Game {
         }
       });
 
-      // this.aliens.forEach((alien) => {
-      //   if (this.character.collidesWith(alien)) {
-      //     this.gameOver();
-      //   }
-      // });
+      this.aliens.forEach((alien) => {
+        if (this.character.collidesWith(alien)) {
+          this.gameOver();
+        }
+      });
     }, 100);
   }
 
