@@ -5,6 +5,9 @@
 
 **Save the Galaxy Mini-Game** Save the Galaxy is a desktop-only mini-game where you control a galactic warrior princess who collects stars to gain power and save the galaxy from alien invaders. The game is built using JavaScript, HTML, and CSS, following Object-Oriented Programming principles.
 
+🎮 [PLAY NOW!](https://aelnor-dev.github.io/save-the-galaxy-mini-game/)
+
+
 ⭐ Technologies Used
 
 -   **JavaScript**: Core game logic and mechanics.
